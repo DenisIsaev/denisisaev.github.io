@@ -55,6 +55,11 @@
     <p>Твой username: <div id="un"></div></p>
     <button class="btn">Закрыть приложение</button>
     <button class="btn">Показать предупреждение</button>
+    <button class="btn">Показать контакты</button>
+    <button class="btn">Показать запрос прав</button>
+    <button class="btn">Показать clipboard</button>
+    <button class="btn">Показать QR</button>
+    <button class="btn">Показать подтверждение</button>
   </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -66,6 +71,11 @@
 
       let closeBtn = document.getElementsByClassName("btn")[0]
       let alertBtn = document.getElementsByClassName("btn")[1]
+      let contactsBtn = document.getElementsByClassName("btn")[2]
+      let accBtn = document.getElementsByClassName("btn")[3]
+      let clipBtn = document.getElementsByClassName("btn")[4]
+      let qrBtn = document.getElementsByClassName("btn")[5]
+      let confirmBtn = document.getElementsByClassName("btn")[5]
 
       document.getElementById("un").innerText = name
 
@@ -75,6 +85,26 @@
 
       alertBtn.addEventListener("click", () => {
           tg.showAlert("Что-то пошло не так");
+      });
+
+      contactsBtn.addEventListener("click", () => {
+          tg.requestContact();
+      });
+
+      accBtn.addEventListener("click", () => {
+          tg.requestWriteAccess();
+      });
+
+      clipBtn.addEventListener("click", () => {
+          tg.readTextFromClipboard();
+      });
+
+      qrBtn.addEventListener("click", () => {
+          tg.showScanQrPopup();
+      });
+
+      confirmBtn.addEventListener("click", () => {
+          tg.showScanQrPopup();
       });
   </script>
 </body>
