@@ -93,18 +93,6 @@
           tg.requestContact();
       });
 
-      accBtn.addEventListener("click", () => {
-          tg.requestWriteAccess();
-      });
-
-      clipBtn.addEventListener("click", () => {
-          tg.readTextFromClipboard();
-      });
-
-      qrBtn.addEventListener("click", () => {
-          tg.showScanQrPopup();
-      });
-
       confirmBtn.addEventListener("click", () => {
           tg.showConfirm("Подтвердим?");
       });
