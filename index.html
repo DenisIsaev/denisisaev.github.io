@@ -69,11 +69,13 @@
       document.getElementById("un").innerText = name
 
       sendBtn.addEventListener("click", () => {
-          let text = "Этот текст был отправлен из-под miniApp пользователем " + name
+          alert("HELLO");
+
+          let text = "Этот текст был отправлен из-под miniApp пользователем " + name;
 
           let data = {
               title: "Сообщение из miniApp",
-              desc: "Это сообщение было отправлено через miniApp",   
+              desc: "Это сообщение было отправлено через miniApp",
               text: text
           }
 
