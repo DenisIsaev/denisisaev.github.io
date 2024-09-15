@@ -52,7 +52,8 @@
   <div class="Main">
     <h1>Тестовое приложение</h1>
     <p>Твой username: <div id="un"></div></p>
-    <button class="btn">Закрыть</button>
+    <button class="s-btn">Отправить в Telegram</button>
+    <button class="btn">Закрыть приложение</button>
 </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -61,9 +62,21 @@
       let tg = window.Telegram.WebApp;
 
       let name = tg.initDataUnsafe.user.username
+
+      let sendBtn = document.getElementsByClassName("s-btn")[0]
       let closeBtn = document.getElementsByClassName("btn")[0]
 
       document.getElementById("un").innerText = name
+
+      sendBtn.addEventListener("click", () => {
+          let text = "Этот текст был отправлен из-под miniApp пользователем " + name
+
+          let data = {
+              fromApp: text
+          }
+
+          tg.sendData(JSON.stringify(data));
+      });
 
       closeBtn.addEventListener("click", () => {
           tg.close();
