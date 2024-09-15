@@ -51,10 +51,23 @@
 <body>
   <div class="Main">
     <h1>Тестовое приложение</h1>
-    <p></p>
-    <button class="btn">Кнопка</button>
+    <p>Твой username: <div id="un"></div></p>
+    <button class="btn">Закрыть</button>
 </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <script>
+      let tg = window.Telegram.WebApp;
+
+      let name = tg.initDataUnsafe.user.username
+      let closeBtn = document.getElementsByClassName("btn")[0]
+
+      document.getElementById("un").innerText = name
+
+      closeBtn.addEventListener("click", () => {
+          tg.close();
+      });
+  </script>
 </body>
 </html>
