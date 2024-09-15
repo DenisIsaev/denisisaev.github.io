@@ -72,7 +72,9 @@
           let text = "Этот текст был отправлен из-под miniApp пользователем " + name
 
           let data = {
-              fromApp: text
+              title: "Сообщение из miniApp",
+              desc: "Это сообщение было отправлено через miniApp",   
+              text: text
           }
 
           tg.sendData(JSON.stringify(data));
